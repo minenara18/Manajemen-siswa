@@ -22,7 +22,6 @@ return new class extends Migration
             $table->text('photo');
             $table->enum('gender', ['Male', 'Female']);
             $table->enum('religion', ['Islam', 'Catholic', 'Christian', 'Hindu', 'Buddha', 'Confucian']);
-            $table->string('ambision');
 
             $table->timestamps();
         });

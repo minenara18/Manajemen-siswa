@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\returnSelf;
+
 class TeacherController extends Controller
 {
     public function index() {
@@ -27,16 +29,13 @@ class TeacherController extends Controller
     public function store(Request $request) {
         $data = $request->all();
 
-        if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
-            $data['photo'] = $request->file('photo')->store('guru-photo', 'public');
-        } else {
-            $data['photo'] = null;
-        }
+        $data['photo'] = $request->file('photo')->store('guru-photo', 'public');
 
         Teacher::create($data);
 
+        return redirect()->route('guru.index')
 
-        return redirect()->route(route: 'guru.index')->with(key:'success', value:'Guru berhasil ditambah');
+        ->with('success', 'Guru berhasil ditambahkan');
     }
 
     public function edit($id) {
@@ -47,17 +46,17 @@ class TeacherController extends Controller
         ]);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request, $id) {
 
         $data = $request->all();
-        if(!empty($data['photo'])) {
+        if (!empty($data['photo'])) {
             $data['photo'] = $request->file('photo')->store('guru-photo', 'public');
-        }else{
+        } else {
             unset($data['photo']);
         }
-        Teacher::create($data);
 
-        return redirect()->route('guru.idex')->with('success', 'Guru berhasil diedit');
+        Teacher::findOrFail($id)->update($data);
+        return redirect()->route('guru.index')->with('SUCCESS', 'Guru berhasil diedit');
     }
 
     public function destroy($id) {

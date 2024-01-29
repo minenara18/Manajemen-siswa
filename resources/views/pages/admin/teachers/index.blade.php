@@ -4,9 +4,9 @@
     <section class="py-5">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
-                <h4 class="fw-bold mb-5">Guru</h4>
+                <h4 class="fw-bold mb-5">Teacher</h4>
                 <a href="{{ route('guru.create') }}" class="btn btn-primary d-flex align-items-center gap-2">
-                    <i class="bx bx-plus"></i> Added the Teacher
+                    <i class="bx bx-plus"></i> Added of Teacher
                 </a>
             </div>
             @if (session('success'))
@@ -25,7 +25,7 @@
                             <th>Name of Teacher</th>
                             <th>Position</th>
                             <th>Gender</th>
-                            <th>Religion</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,14 +33,13 @@
                             <tr style="vertical-align: middle">
                                 <td>{{ $key + 1 }}</td>
                                 <td>
-                                    <img src="{{ url('storage/*' . $item->photo) }}" widht="30" height="30"
+                                    <img src="{{ url('storage/' . $item->photo) }}" widht="30" height="30"
                                         alt="" class="rounded-circle">
                                 </td>
                                 <td>{{ $item->nip }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->position }}</td>
                                 <td>{{ $item->gender }}</td>
-                                <td>{{ $item->religion }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a href="{{ route('guru.edit', $item->id) }}"

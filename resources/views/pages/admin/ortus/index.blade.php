@@ -34,7 +34,7 @@
                                 <td>{{ $item->parents_job }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route('ortu.edit', $item->id) }}"
+                                        <a href="{{ route('ortu.edit', ['id' => $students->id, 'id_ortu' => $item->id]) }}"
                                             class="btn btn-sm btn-warning text-white px-3">
                                             Edit
                                         </a>

@@ -10,7 +10,7 @@ use App\Http\Controllers\MajorController;
 use App\Http\Controllers\Admin\OrtuController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Admin\Controller;
-
+use App\Http\Controllers\SPPController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +42,6 @@ route::get('siswa/{id}/orang-tua', [OrtuController::class, 'orang_tua'])->name('
 route::get('siswa/{id}/orang-tua/create', [OrtuController::class, 'orang_tua'])->name('orang-tua.create');
 route::get('siswa/{id}/orang-tua/{id_ortu}/edit', [OrtuController::class, 'orang_tua'])->name('orang-tua.edit');
 
-
+Route::resource('SPP', SPPController::class);
 
 

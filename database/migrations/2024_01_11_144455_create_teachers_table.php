@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->string('nisn');
+            $table->string('nip');
             $table->string('place_of_birth');
             $table->date('date_of_birth');
             $table->text('address');

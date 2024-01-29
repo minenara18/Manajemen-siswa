@@ -5,19 +5,22 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use App\Models\Student;
+Use App\Models\Classroom;
 
 class StudentController extends Controller
 {
     public function index() {
         return view('pages.admin.students.index', [
             'students' => Student::all(),
+            'classrooms' => Classroom::all(),
             'title' => 'Siswa'
         ]);
     }
 
     public function create() {
         return view('pages.admin.students.create', [
-            'title' => 'Tambah Siswa'
+            'title' => 'Tambah Siswa',
+            'classrooms' => Classroom::all()
         ]);
 
         return redirect()->route('siswa.index')->with('success', 'Data Siswa berhasil ditambahkan');
@@ -42,6 +45,7 @@ class StudentController extends Controller
 
         return view('pages.admin.students.edit', [
         'item' => Student::findOrFail($id),
+        'classrooms' => Classroom::all(),
         'title' => 'Edit Siswa'
         ]);
     }

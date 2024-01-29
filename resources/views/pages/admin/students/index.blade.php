@@ -23,9 +23,9 @@
                             <th>Photo</th>
                             <th>NISN</th>
                             <th>Name of Student</th>
-                            <th>Ambision</th>
+                            <th>Class</th>
                             <th>Gender</th>
-                            <th>Religion</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,12 +36,10 @@
                                     <img src="{{ url('storage/*' . $item->photo) }}" widht="30" height="30"
                                         alt="" class="rounded-circle">
                                 </td>
-                                <td>{{ $item->nip }}</td>
+                                <td>{{ $item->nisn }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->position }}</td>
-                                <td>{{ $item->ambision }}</td>
+                                <td>{{ $item->classroom->classroom_name }}</td>
                                 <td>{{ $item->gender }}</td>
-                                <td>{{ $item->religion }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a href="{{ route('guru.edit', $item->id) }}"

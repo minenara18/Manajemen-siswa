@@ -4,7 +4,7 @@
     <section class="py-5">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
-                <h4 class="fw-bold mb-5">Jurusan</h4>
+                <h4 class="fw-bold mb-5">Major</h4>
                 <button type="button" data-bs-toggle="modal" data-bs-target="#addModal"
                     class="btn btn-primary d-flex align-items-center gap-2">
                     <i class="bx bx-plus"></i> Added the Major
@@ -35,7 +35,7 @@
                                 <td>
                                     <div class="d-flex gap-2">
                                         <button type="button" data-bs-toggle="modal"
-                                            data-bs-target="#editModal {{ $item->$id }}"
+                                            data-bs-target="#editModal {{ $item->id }}"
                                             class="btn btn-sm btn-warning text-white px-3">
                                             Edit
                                         </button>
@@ -88,7 +88,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">tambah jurusan baru</h5>
+                    <h5 class="modal-title">Tambah jurusan baru</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

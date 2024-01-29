@@ -3,7 +3,7 @@
 @section('content')
     <section class="py-5">
         <div class="container">
-            <h4 class="fw-bold md-5">Added the Student</h4>
+            <h4 class="fw-bold md-5">Added the Parent</h4>
 
             <div class="card border-0">
                 <div class="card-body">
@@ -18,7 +18,7 @@
                             </div>
 
                             <div class="col-6 mb-3">
-                                <label for="parent">parent</label>
+                                <label for="parent">Parent</label>
                                 <select name="parent" id="parent" class="form-control">
                                     <option value="">-Choose the parent-</option>
                                     <option value="father">Father</option>
