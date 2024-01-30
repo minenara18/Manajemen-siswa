@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Subject;
-use PhpParser\Builder\Function_;
 
 class SubjectController extends Controller
 {
@@ -19,7 +18,7 @@ class SubjectController extends Controller
 
         return view('pages.admin.subjects.index', [
             'subjects'=>$subjects,
-            'data'=>Subject::all(),
+            'datas'=>Subject::all(),
             'title'=> 'Daftar Mapel',
             'kelompok'=>'Semua Kelompok'
         ]);
@@ -31,7 +30,7 @@ class SubjectController extends Controller
 
         return view('pages.admin.subjects.index', [
             'subjects'=>$subjects,
-            'data'=>Subject::all(),
+            'datas'=>Subject::all(),
             'title'=> 'Daftar Mapel',
             'kelompok'=>'Semua Kelompok'
         ]);
@@ -39,7 +38,8 @@ class SubjectController extends Controller
 
     public function create() {
         return view('pages.admin.subjects.create', [
-            'title' => 'Tambah mapel'
+            'title' => 'Tambah mapel',
+            'subjects' => Subject::all()
         ]);
 
         return redirect()->route('mapel.index')->with('success', 'Data mapel berhasil ditambahkan');
@@ -63,9 +63,9 @@ class SubjectController extends Controller
     public function update(Request $request, $id) {
 
         $data = $request->all();
-        Subject::create($data);
+        Subject::findOrFail($id)->update($data);
 
-        return redirect()->route('mapel.idex')->with('success', 'Mapel berhasil diedit');
+        return redirect()->route('mapel.index')->with('success', 'Mapel berhasil diedit');
     }
 
     public function destroy($id) {

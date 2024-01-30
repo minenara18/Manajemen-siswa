@@ -92,24 +92,10 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="classroom_id">Kelas</label>
-                                    <select name="classroom_id" id="classroom_id" class="form-select" required>
-                                        <option value="">Pilih Kelas</option>
-                                        @foreach ($classrooms as $classroom)
-                                            <option value="{{ $classroom->id }}"
-                                                {{ $classroom->id == $item->classroom_id ? 'SELECTED' : '' }}>
-                                                {{ $classroom->classroom_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
 
                             <div class="d-flex gap-2">
                                 <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                <a href="{{ route('siswa.index') }}" class="btn btn-secondary">Batal</a>
+                                <a href="{{ route('guru.index') }}" class="btn btn-secondary">Batal</a>
                             </div>
                         </div>
                     </form>

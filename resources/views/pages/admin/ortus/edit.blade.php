@@ -40,7 +40,8 @@
 
                                 <div class="d-flex gap-2">
                                     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                    <a href="{{ route('guru.index') }}" class="btn btn-secondary">Batal</a>
+                                    <a href="{{ route('orang-tua.index', $students->id) }}"
+                                        class="btn btn-secondary">Batal</a>
                                 </div>
                             </div>
                         </form>

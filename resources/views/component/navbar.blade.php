@@ -46,8 +46,8 @@
                         <i class='bx bxs-buildings'></i> SPP
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('kelas.index') }}">Student SPP</a></li>
-                        <li><a class="dropdown-item" href="{{ route('SPP.index') }}">SPP</a></li>
+                        <li><a class="dropdown-item" href="{{ route('spp_murid.index') }}">Student SPP</a></li>
+                        <li><a class="dropdown-item" href="{{ route('spp.index') }}">SPP</a></li>
                     </ul>
                 </li>
             </ul>

@@ -50,7 +50,7 @@ class StudentController extends Controller
         ]);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request, $id) {
 
         $data = $request->all();
         if(!empty($data['photo'])) {
@@ -59,7 +59,7 @@ class StudentController extends Controller
             unset($data['photo']);
         }
 
-        Student::create($data);
+        Student::findOrFail($id)->update($data);
 
         return redirect()->route('siswa.idex')->with('success', 'Siswa berhasil diedit');
     }

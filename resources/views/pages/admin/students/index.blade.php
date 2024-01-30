@@ -33,24 +33,24 @@
                             <tr style="vertical-align: middle">
                                 <td>{{ $key + 1 }}</td>
                                 <td>
-                                    <img src="{{ url('storage/*' . $item->photo) }}" widht="30" height="30"
+                                    <img src="{{ url('storage/' . $item->photo) }}" widht="30" height="30"
                                         alt="" class="rounded-circle">
                                 </td>
                                 <td>{{ $item->nisn }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->classroom->classroom_name }}</td>
+                                <td>{{ optional($item->classroom)->classroom_name }}</td>
                                 <td>{{ $item->gender }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route('guru.edit', $item->id) }}"
+                                        <a href="{{ route('siswa.edit', $item->id) }}"
                                             class="btn btn-sm btn-warning text-white px-3">
                                             Edit
                                         </a>
-                                        <a href="{{ route('guru.edit', $item->id) }}"
+                                        <a href="{{ route('ortu.index', $item->id) }}"
                                             class="btn btn-sm btn-secondary text-white px-3">
                                             Parent
                                         </a>
-                                        <form action="{{ route('guru.destroy', $item->id) }}" method="post">
+                                        <form action="{{ route('siswa.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
 

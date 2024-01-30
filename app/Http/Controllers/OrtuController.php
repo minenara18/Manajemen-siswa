@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,7 +19,6 @@ class OrtuController extends Controller
 
     public function orang_tua($id) {
         return view ('pages.admin.ortus.index', [
-            'ortus' => Ortu::where('id_student', $id)->get(),
             'students' => Student::findOrFail($id),
             'title' => 'Wali Murid'
         ]);
@@ -27,7 +26,7 @@ class OrtuController extends Controller
 
     public function create($id) {
         return view ('pages.admin.ortus.create', [
-            'ortus' => Ortu::findOrFail($id),
+            'students' => Student::findOrFail($id),
             'title' => 'Tambah Wali Murid'
         ]);
     }
@@ -39,20 +38,21 @@ class OrtuController extends Controller
         return redirect()->route('orang-tua.index', $request->id_student)->with('success', 'wali murid berhasil ditambahkan');
     }
 
-    public function edit($id) {
+    public function edit($id, $id_ortu) {
 
         return view('pages.admin.ortus.edit', [
-        'item' => Student::findOrFail($id),
+        'item' => Ortu::findOrFail($id_ortu),
+        'students' => Student::findOrFail($id),
         'title' => 'Edit Wali murid'
         ]);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request, $id) {
 
         $data = $request->all();
-        Student::create($data);
+        Ortu::findOrFail($id)->create($data);
 
-        return redirect()->route('ortu.idex')->with('success', 'Orang tua berhasil diedit');
+        return redirect()->route('ortu.index')->with('success', 'Orang tua berhasil diedit');
     }
 
     public function destroy($id) {

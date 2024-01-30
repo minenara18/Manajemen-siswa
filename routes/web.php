@@ -7,10 +7,11 @@ use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\MajorController;
-use App\Http\Controllers\Admin\OrtuController;
+use App\Http\Controllers\OrtuController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Admin\Controller;
-use App\Http\Controllers\SPPController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\StudentPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,6 @@ route::get('siswa/{id}/orang-tua', [OrtuController::class, 'orang_tua'])->name('
 route::get('siswa/{id}/orang-tua/create', [OrtuController::class, 'orang_tua'])->name('orang-tua.create');
 route::get('siswa/{id}/orang-tua/{id_ortu}/edit', [OrtuController::class, 'orang_tua'])->name('orang-tua.edit');
 
-Route::resource('SPP', SPPController::class);
-
+Route::resource('spp_murid', StudentPaymentController::class);
+Route::resource('spp', PaymentController::class);
 

@@ -8,9 +8,8 @@
             <div class="card border-0">
                 <div class="card-body">
 
-                    <form action="{{ route('mapel.store', ['mapel' => $item->id]) }}" method="post">
+                    <form action="{{ route('mapel.store') }}" method="post">
                         @csrf
-                        @method('PUT')
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -26,18 +25,13 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="group_subject">Group of Subject</label>
-                                <input type="text" name="group_subject" id="group_subject" class="form-control" required>
-                            </div>
-
-                            {{-- <div class="col-6 mb-3">
-                                <label for="group_subject">Group of Subject</label>
-                                <select name="group_subject" id="group_subject" class="form-control">
-                                    <option value="">-Choose the Gender-</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                <label for="group">Group of Subject</label>
+                                <select name="group" id="group" class="form-control">
+                                    <option value="Kelompok A">Kelompok A (Pelajaran Wajib)</option>
+                                    <option value="Kelompok B">Kelompok B (Kejuruan)</option>
+                                    <option value="Kelompok C">Kelompok C (Peminatan)</option>
                                 </select>
-                            </div> --}}
+                            </div>
 
                             <div class="d-flex gap-2">
                                 <button type="submit" class="btn btn-primary">Simpan</button>

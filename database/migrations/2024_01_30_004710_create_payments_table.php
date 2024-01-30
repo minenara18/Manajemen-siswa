@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name_subject');
-            $table->string('name_subject_teacher');
-            $table->enum('group_subject', ['Kelompok A', 'Kelompok B', 'Kelompok C']);
+            $table->string('name_payment');
+            $table->enum('pay', ['months', 'years']);
+            $table->string('nominal');
 
 
             $table->timestamps();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('payments');
     }
 };

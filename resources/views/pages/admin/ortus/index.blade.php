@@ -34,8 +34,8 @@
                                 <td>{{ $item->parents_job }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route('ortu.edit', ['id' => $students->id, 'id_ortu' => $item->id]) }}"
-                                            class="btn btn-sm btn-warning text-white px-3">
+                                        <a href="{{ route('orang-tua.edit', ['id' => $students->first()->id, 'id_ortu' => $item->id]) }}"
+                                            class="btn btn-sm btn-warning text-white px-4">
                                             Edit
                                         </a>
                                         <form action="{{ route('ortu.destroy', $item->id) }}" method="post">
